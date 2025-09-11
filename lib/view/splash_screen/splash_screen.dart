@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stylish_ui/core/constants/color_constants.dart';
 import 'package:stylish_ui/core/constants/image_constants.dart';
-import 'package:stylish_ui/view/home_screen/home_screen.dart';
 import 'package:stylish_ui/view/onboarding_screen/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
