@@ -26,18 +26,13 @@ class CustomTextField extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: paddingbottom),
       child: TextFormField(
+        controller: controller,
         obscureText: obscuretext,
         decoration: InputDecoration(
-          prefixIcon: Icon(
-            prefixicon,
-            color: ColorConstants.iconcolor,
-            size: 24,
-          ),
           label: Text(
             labeltext,
             style: TextStyle(color: ColorConstants.textcolor, fontSize: 12),
           ),
-          suffixIcon: suffixIcon,
           filled: true,
           fillColor: ColorConstants.textfill,
           enabledBorder: OutlineInputBorder(
@@ -48,6 +43,12 @@ class CustomTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide(color: ColorConstants.bordercolor),
           ),
+          prefixIcon: Icon(
+            prefixicon,
+            color: ColorConstants.iconcolor,
+            size: 24,
+          ),
+          suffixIcon: suffixIcon,
         ),
         validator: validator,
       ),
