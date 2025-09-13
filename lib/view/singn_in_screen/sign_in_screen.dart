@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:stylish_ui/core/constants/color_constants.dart';
 import 'package:stylish_ui/view/forgot_screen/forgot_pass_screen.dart';

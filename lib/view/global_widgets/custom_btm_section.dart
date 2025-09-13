@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stylish_ui/core/constants/color_constants.dart';
 import 'package:stylish_ui/core/constants/image_constants.dart';
 import 'package:stylish_ui/view/global_widgets/custom_circle_avatar.dart';
