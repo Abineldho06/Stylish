@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stylish_ui/core/constants/color_constants.dart';
+import 'package:stylish_ui/core/constants/image_constants.dart';
+import 'package:stylish_ui/view/global_widgets/custom_circle_avatar.dart';
 
 class CustomBottomSection extends StatelessWidget {
-  const CustomBottomSection({super.key});
+  const CustomBottomSection({
+    super.key,
+    required this.leadingtext,
+    required this.option,
+    this.buttononTap,
+  });
 
+  final String leadingtext;
+  final String option;
+  final void Function()? buttononTap;
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -23,54 +34,34 @@ class CustomBottomSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             spacing: 10,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Color(0xffFCF3F6),
-                  border: Border.all(color: ColorConstants.primary, width: 2),
-                  shape: BoxShape.circle,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Image.asset(
-                    'assets/images/google 1.png',
-                    width: 24,
-                    height: 24,
-                  ),
-                ),
+              CustomCircleAvatar(image: ImageConstants.google_svg),
+              CustomCircleAvatar(image: ImageConstants.apple_avg),
+              CustomCircleAvatar(image: ImageConstants.facebook_svg),
+            ],
+          ),
+          SizedBox(height: 29),
+
+          Row(
+            spacing: 5,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                leadingtext,
+                style: TextStyle(fontSize: 14, color: ColorConstants.grey),
               ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color(0xffFCF3F6),
-                  border: Border.all(color: ColorConstants.primary, width: 2),
-                  shape: BoxShape.circle,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Image.asset(
-                    'assets/images/apple 1.png',
-                    width: 24,
-                    height: 24,
-                  ),
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color(0xffFCF3F6),
-                  border: Border.all(color: ColorConstants.primary, width: 2),
-                  shape: BoxShape.circle,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Image.asset(
-                    'assets/images/facebook-app-symbol 1.png',
-                    width: 24,
-                    height: 24,
+              InkWell(
+                onTap: buttononTap,
+                child: Text(
+                  option,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    color: ColorConstants.primary,
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 29),
         ],
       ),
     );

@@ -11,6 +11,7 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.obscuretext = false,
     this.paddingbottom = 31,
+    this.formkey,
   });
 
   final String labeltext;
@@ -20,37 +21,49 @@ class CustomTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final bool obscuretext;
   final double paddingbottom;
+  final Key? formkey;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(bottom: paddingbottom),
-      child: TextFormField(
-        controller: controller,
-        obscureText: obscuretext,
-        decoration: InputDecoration(
-          label: Text(
-            labeltext,
-            style: TextStyle(color: ColorConstants.textcolor, fontSize: 12),
+      child: Form(
+        key: formkey,
+        child: TextFormField(
+          controller: controller,
+          obscureText: obscuretext,
+          decoration: InputDecoration(
+            label: Text(
+              labeltext,
+              style: TextStyle(color: ColorConstants.textcolor, fontSize: 12),
+            ),
+            filled: true,
+            fillColor: ColorConstants.textfill,
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: ColorConstants.bordercolor),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: ColorConstants.bordercolor),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: ColorConstants.primary),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: ColorConstants.black),
+            ),
+            prefixIcon: Icon(
+              prefixicon,
+              color: ColorConstants.iconcolor,
+              size: 24,
+            ),
+            suffixIcon: suffixIcon,
           ),
-          filled: true,
-          fillColor: ColorConstants.textfill,
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: ColorConstants.bordercolor),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: ColorConstants.bordercolor),
-          ),
-          prefixIcon: Icon(
-            prefixicon,
-            color: ColorConstants.iconcolor,
-            size: 24,
-          ),
-          suffixIcon: suffixIcon,
+          validator: validator,
         ),
-        validator: validator,
       ),
     );
   }
