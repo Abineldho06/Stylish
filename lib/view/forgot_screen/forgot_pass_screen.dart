@@ -41,6 +41,7 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                 SizedBox(height: 36),
 
                 CustomTextField(
+                  controller: emailcontroller,
                   focusNode: emailfocusNode,
                   labeltext: 'Enter your email address',
                   prefixicon: Icons.mail,
