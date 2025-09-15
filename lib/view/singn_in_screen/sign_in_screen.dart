@@ -20,6 +20,11 @@ class _SignInScreenState extends State<SignInScreen> {
   final emailformkey = GlobalKey<FormState>();
   final passformkey = GlobalKey<FormState>();
 
+  FocusNode emailfocusNode = FocusNode();
+  FocusNode passfocusNode = FocusNode();
+
+  bool passcurrentstate = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,18 +59,27 @@ class _SignInScreenState extends State<SignInScreen> {
                       return 'Enter a valid Email or username';
                     }
                   },
+                  focusNode: emailfocusNode,
+                  onTapOutside: (_) {
+                    emailfocusNode.unfocus();
+                  },
                 ),
 
                 CustomTextField(
                   formkey: passformkey,
                   controller: passcontroller,
-                  obscuretext: true,
+                  obscuretext: passcurrentstate,
                   labeltext: 'Password',
                   prefixicon: Icons.lock,
                   suffixIcon: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      passcurrentstate = !passcurrentstate;
+                      setState(() {});
+                    },
                     child: Icon(
-                      Icons.visibility_outlined,
+                      passcurrentstate
+                          ? Icons.visibility_outlined
+                          : Icons.visibility_off_outlined,
                       color: ColorConstants.iconcolor,
                       size: 24,
                     ),
@@ -77,6 +91,10 @@ class _SignInScreenState extends State<SignInScreen> {
                     } else {
                       return 'Enter a valid password';
                     }
+                  },
+                  focusNode: passfocusNode,
+                  onTapOutside: (_) {
+                    passfocusNode.unfocus();
                   },
                 ),
 
@@ -107,8 +125,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   paddingbottom: 75,
                   buttononTap: () {
                     if (emailformkey.currentState!.validate() &&
-                        passformkey.currentState!.validate())
-                      ;
+                        passformkey.currentState!.validate()) {}
                   },
                 ),
 

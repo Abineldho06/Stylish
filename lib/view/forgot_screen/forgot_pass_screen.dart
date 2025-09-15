@@ -12,6 +12,12 @@ class ForgotPassScreen extends StatefulWidget {
 }
 
 class _ForgotPassScreenState extends State<ForgotPassScreen> {
+  TextEditingController emailcontroller = TextEditingController();
+
+  FocusNode emailfocusNode = FocusNode();
+
+  final emailformkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +41,21 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                 SizedBox(height: 36),
 
                 CustomTextField(
+                  focusNode: emailfocusNode,
                   labeltext: 'Enter your email address',
                   prefixicon: Icons.mail,
                   paddingbottom: 26,
+                  formkey: emailformkey,
+                  validator: (value) {
+                    if (value != null && value.contains('@')) {
+                      return null;
+                    } else {
+                      return 'Enter a valid Email';
+                    }
+                  },
+                  onTapOutside: (_) {
+                    emailfocusNode.unfocus();
+                  },
                 ),
 
                 Text(
@@ -52,6 +70,9 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                   text: 'Submit',
                   paddingtop: 26,
                   paddingbottom: 75,
+                  buttononTap: () {
+                    if (emailformkey.currentState!.validate()) {}
+                  },
                 ),
               ],
             ),

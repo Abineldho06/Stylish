@@ -13,6 +13,21 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passcontroller = TextEditingController();
+  TextEditingController repasscontroller = TextEditingController();
+
+  final emailformkey = GlobalKey<FormState>();
+  final passformkey = GlobalKey<FormState>();
+  final repassformkey = GlobalKey<FormState>();
+
+  FocusNode emailfocusNode = FocusNode();
+  FocusNode passfocusNode = FocusNode();
+  FocusNode repassfocusNode = FocusNode();
+
+  bool passcurrentstate = true;
+  bool repasscurrentstate = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,28 +53,62 @@ class _SignupScreenState extends State<SignupScreen> {
                 CustomTextField(
                   labeltext: 'Email or phone number',
                   prefixicon: Icons.person,
+                  focusNode: emailfocusNode,
+                  formkey: emailformkey,
+                  validator: (value) {
+                    if (value != null && value.contains('@')) {
+                      return null;
+                    } else {
+                      return 'Enter a valid Email';
+                    }
+                  },
+                  onTapOutside: (_) {
+                    emailfocusNode.unfocus();
+                  },
                 ),
 
                 CustomTextField(
-                  obscuretext: true,
+                  obscuretext: passcurrentstate,
                   suffixIcon: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      passcurrentstate = !passcurrentstate;
+                      setState(() {});
+                    },
                     child: Icon(
-                      Icons.visibility_outlined,
+                      passcurrentstate
+                          ? Icons.visibility_outlined
+                          : Icons.visibility_off,
                       color: ColorConstants.iconcolor,
                       size: 24,
                     ),
                   ),
                   labeltext: 'Password',
                   prefixicon: Icons.lock_rounded,
+                  focusNode: passfocusNode,
+                  formkey: passformkey,
+                  validator: (value) {
+                    if (value != null && value.length >= 6) {
+                      return null;
+                    } else {
+                      return 'Enter a valid password';
+                    }
+                  },
+                  onTapOutside: (_) {
+                    passfocusNode.unfocus();
+                  },
                 ),
 
                 CustomTextField(
-                  obscuretext: true,
+                  obscuretext: repasscurrentstate,
                   suffixIcon: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      repasscurrentstate = !repasscurrentstate;
+                      setState(() {});
+                    },
                     child: Icon(
-                      Icons.visibility_outlined,
+                      repasscurrentstate
+                          ? Icons.visibility_outlined
+                          : Icons.visibility_off_outlined,
                       color: ColorConstants.iconcolor,
                       size: 24,
                     ),
@@ -67,6 +116,18 @@ class _SignupScreenState extends State<SignupScreen> {
                   labeltext: 'ConfirmPassword',
                   prefixicon: Icons.lock,
                   paddingbottom: 19,
+                  focusNode: repassfocusNode,
+                  formkey: repassformkey,
+                  validator: (value) {
+                    if (value != null && value.length >= 6) {
+                      return null;
+                    } else {
+                      return 'please enter the same as the password';
+                    }
+                  },
+                  onTapOutside: (_) {
+                    repassfocusNode.unfocus();
+                  },
                 ),
 
                 Text.rich(
@@ -96,6 +157,11 @@ class _SignupScreenState extends State<SignupScreen> {
                   text: 'Create Account',
                   paddingbottom: 40,
                   paddingtop: 38,
+                  buttononTap: () {
+                    if (emailformkey.currentState!.validate() &&
+                        passformkey.currentState!.validate() &&
+                        repassformkey.currentState!.validate()) {}
+                  },
                 ),
 
                 CustomBottomSection(

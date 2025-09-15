@@ -12,6 +12,9 @@ class CustomTextField extends StatelessWidget {
     this.obscuretext = false,
     this.paddingbottom = 31,
     this.formkey,
+    required this.focusNode,
+    this.onChanged,
+    this.onTapOutside,
   });
 
   final String labeltext;
@@ -22,6 +25,9 @@ class CustomTextField extends StatelessWidget {
   final bool obscuretext;
   final double paddingbottom;
   final Key? formkey;
+  final FocusNode focusNode;
+  final void Function(PointerDownEvent)? onTapOutside;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +38,8 @@ class CustomTextField extends StatelessWidget {
         child: TextFormField(
           controller: controller,
           obscureText: obscuretext,
+          focusNode: focusNode,
+
           decoration: InputDecoration(
             label: Text(
               labeltext,
@@ -63,6 +71,8 @@ class CustomTextField extends StatelessWidget {
             suffixIcon: suffixIcon,
           ),
           validator: validator,
+          onTapOutside: onTapOutside,
+          onChanged: onChanged,
         ),
       ),
     );
