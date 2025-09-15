@@ -109,7 +109,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     child: Icon(
                       repasscurrentstate
                           ? Icons.visibility_outlined
-                          : Icons.visibility_off_outlined,
+                          : Icons.visibility_off,
                       color: ColorConstants.iconcolor,
                       size: 24,
                     ),

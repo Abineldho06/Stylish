@@ -79,7 +79,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: Icon(
                       passcurrentstate
                           ? Icons.visibility_outlined
-                          : Icons.visibility_off_outlined,
+                          : Icons.visibility_off,
                       color: ColorConstants.iconcolor,
                       size: 24,
                     ),
