@@ -69,6 +69,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                 CustomTextField(
                   obscuretext: passcurrentstate,
+                  controller: passcontroller,
                   suffixIcon: TextButton(
                     onPressed: () {
                       passcurrentstate = !passcurrentstate;
@@ -119,11 +120,13 @@ class _SignupScreenState extends State<SignupScreen> {
                   focusNode: repassfocusNode,
                   formkey: repassformkey,
                   validator: (value) {
-                    if (value != null && value.length >= 6) {
-                      return null;
-                    } else {
-                      return 'please enter the same as the password';
+                    if (value == null || value.isEmpty) {
+                      return 're enter password';
                     }
+                    if (value.trim() != passcontroller.text.trim()) {
+                      return 'The re entered password is wrong';
+                    }
+                    return null;
                   },
                   onTapOutside: (_) {
                     repassfocusNode.unfocus();
