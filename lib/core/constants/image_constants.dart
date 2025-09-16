@@ -6,4 +6,5 @@ class ImageConstants {
   static const String google_svg = 'assets/images/google.svg';
   static const String apple_avg = 'assets/images/apple.svg';
   static const String facebook_svg = 'assets/images/facebook.svg';
+  static const String getstartimg = 'assets/images/unsplash_fouVDmGXoPI.png';
 }

@@ -56,7 +56,9 @@ class _SignupScreenState extends State<SignupScreen> {
                   focusNode: emailfocusNode,
                   formkey: emailformkey,
                   validator: (value) {
-                    if (value != null && value.contains('@')) {
+                    if (value != null &&
+                        value.contains('@') &&
+                        value.length >= 3) {
                       return null;
                     } else {
                       return 'Enter a valid Email';

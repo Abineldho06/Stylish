@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stylish_ui/core/constants/color_constants.dart';
 import 'package:stylish_ui/core/constants/image_constants.dart';
-import 'package:stylish_ui/view/home_screen/home_screen.dart';
 import 'package:stylish_ui/view/singn_in_screen/sign_in_screen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -72,7 +71,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => HomeScreen()),
+                MaterialPageRoute(builder: (context) => SignInScreen()),
               );
             },
             child: Text(

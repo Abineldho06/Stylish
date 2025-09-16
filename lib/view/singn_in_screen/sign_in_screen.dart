@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stylish_ui/core/constants/color_constants.dart';
 import 'package:stylish_ui/view/forgot_screen/forgot_pass_screen.dart';
+import 'package:stylish_ui/view/get_started_screen/get_started_screen.dart';
 import 'package:stylish_ui/view/global_widgets/custom_btm_section.dart';
 import 'package:stylish_ui/view/global_widgets/custom_red_button.dart';
 import 'package:stylish_ui/view/global_widgets/custom_text_field.dart';
@@ -53,7 +54,9 @@ class _SignInScreenState extends State<SignInScreen> {
                   controller: emailcontroller,
                   formkey: emailformkey,
                   validator: (value) {
-                    if (value != null && value.length >= 3) {
+                    if (value != null &&
+                        value.length >= 3 &&
+                        value.contains('@')) {
                       return null;
                     } else {
                       return 'Enter a valid Email or username';
@@ -125,7 +128,14 @@ class _SignInScreenState extends State<SignInScreen> {
                   paddingbottom: 75,
                   buttononTap: () {
                     if (emailformkey.currentState!.validate() &&
-                        passformkey.currentState!.validate()) {}
+                        passformkey.currentState!.validate()) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => GetStartedScreen(),
+                        ),
+                      );
+                    }
                   },
                 ),
 
