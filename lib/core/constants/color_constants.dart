@@ -10,4 +10,14 @@ class ColorConstants {
   static const black = Color(0xff000000);
   static const white = Color(0xffffffff);
   static const white2 = Color(0xffF2F2F2);
+  static const textblue = Color(0xff4392F9);
+  static const scafoldclr = Color(0xffF9F9F9);
+  static const searchbartext = Color(0xffBBBBBB);
+
+  static const indicator = Color(0xffFFA3B3);
+  static const indicator2 = Color(0xffDEDBDB);
+
+  static const onboardind = Color(0xff17223B);
+  static const onboardind2 = Color(0xffD9D9D9);
+  static const fabtap = Color(0xffEB3030);
 }

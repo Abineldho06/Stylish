@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:stylish_ui/core/constants/color_constants.dart';
 import 'package:stylish_ui/core/constants/image_constants.dart';
+import 'package:stylish_ui/view/bottom_navbar_screen/bottom_navbar_screen.dart';
+import 'package:stylish_ui/view/home_screen/home_screen.dart';
 import 'package:stylish_ui/view/singn_in_screen/sign_in_screen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -123,42 +126,69 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(20),
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             if (currentindex > 0)
-              TextButton(
-                onPressed: () {
-                  if (currentindex > 0) {
-                    currentindex--;
-                    setState(() {});
-                  }
-                },
-                child: Text(
-                  'Prev',
-                  style: TextStyle(color: ColorConstants.grey, fontSize: 18),
-                ),
-              ),
-            Spacer(),
-            TextButton(
-              onPressed: () {
-                if (currentindex < screendata.length - 1) {
-                  setState(() {
-                    currentindex++;
-                  });
-                } else if (currentindex == 2) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => SignInScreen()),
-                  );
-                }
-              },
-              child: Text(
-                currentindex == screendata.length - 1 ? "Get Started" : "Next",
-                style: TextStyle(color: ColorConstants.primary, fontSize: 18),
-              ),
-            ),
+              _methodPreviewButton()
+            else
+              const SizedBox(width: 70),
+
+            _methodAnimatedSmoothIndicator(),
+
+            _methodNextButton(context),
           ],
         ),
+      ),
+    );
+  }
+
+  TextButton _methodPreviewButton() {
+    return TextButton(
+      onPressed: () {
+        if (currentindex > 0) {
+          currentindex--;
+          setState(() {});
+        }
+      },
+      child: Text(
+        'Prev',
+        style: TextStyle(color: ColorConstants.grey, fontSize: 18),
+      ),
+    );
+  }
+
+  TextButton _methodNextButton(BuildContext context) {
+    return TextButton(
+      onPressed: () {
+        if (currentindex < screendata.length - 1) {
+          setState(() {
+            currentindex++;
+          });
+        } else if (currentindex == screendata.length - 1) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => BottomNavbarScreen()),
+          );
+        }
+      },
+      child: Text(
+        currentindex == screendata.length - 1 ? "Get Started" : "Next",
+        style: TextStyle(color: ColorConstants.primary, fontSize: 18),
+      ),
+    );
+  }
+
+  AnimatedSmoothIndicator _methodAnimatedSmoothIndicator() {
+    return AnimatedSmoothIndicator(
+      activeIndex: currentindex,
+      count: screendata.length,
+      effect: ExpandingDotsEffect(
+        dotHeight: 10,
+        dotWidth: 10,
+        activeDotColor: ColorConstants.onboardind,
+        dotColor: ColorConstants.onboardind2,
+        expansionFactor: 4,
       ),
     );
   }

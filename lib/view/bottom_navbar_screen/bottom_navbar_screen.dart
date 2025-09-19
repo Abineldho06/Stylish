@@ -13,6 +13,8 @@ class BottomNavbarScreen extends StatefulWidget {
 }
 
 class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
+  Color fabcolor = ColorConstants.white;
+  Color fabiconclr = ColorConstants.black;
   int selectedindex = 0;
   List screenlist = [
     HomeScreen(),
@@ -25,12 +27,16 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: ColorConstants.white,
+        onPressed: () {
+          fabcolor = ColorConstants.fabtap;
+          fabiconclr = ColorConstants.white;
+          setState(() {});
+        },
+        backgroundColor: fabcolor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(50),
         ),
-        child: Icon(Icons.shopping_cart_outlined),
+        child: Icon(Icons.shopping_cart_outlined, color: fabiconclr),
       ),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -38,7 +44,10 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
       body: screenlist[selectedindex],
 
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: ColorConstants.white,
+        selectedItemColor: ColorConstants.primary,
         currentIndex: selectedindex,
+        unselectedItemColor: ColorConstants.black,
         onTap: (value) {
           selectedindex = value;
           setState(() {});
