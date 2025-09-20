@@ -3,7 +3,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:stylish_ui/core/constants/color_constants.dart';
 import 'package:stylish_ui/core/constants/image_constants.dart';
 import 'package:stylish_ui/view/bottom_navbar_screen/bottom_navbar_screen.dart';
-import 'package:stylish_ui/view/home_screen/home_screen.dart';
 import 'package:stylish_ui/view/singn_in_screen/sign_in_screen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -90,36 +89,39 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       ),
 
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Image.asset(
-              "${screendata[currentindex]["image"]}",
-              width: screendata[currentindex]["width"],
-              height: screendata[currentindex]["height"],
-            ),
-            Text(
-              "${screendata[currentindex]["title"]}",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(
+                "${screendata[currentindex]["image"]}",
+                width: screendata[currentindex]["width"],
+                height: screendata[currentindex]["height"],
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10, left: 17, right: 18),
-              child: Text(
-                "${screendata[currentindex]["discription"]}",
+              Text(
+                "${screendata[currentindex]["title"]}",
                 style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: ColorConstants.grey,
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
                 ),
-                textAlign: TextAlign.center,
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.only(top: 10, left: 17, right: 18),
+                child: Text(
+                  "${screendata[currentindex]["discription"]}",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    color: ColorConstants.grey,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
 

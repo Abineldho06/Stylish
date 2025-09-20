@@ -20,4 +20,10 @@ class ColorConstants {
   static const onboardind = Color(0xff17223B);
   static const onboardind2 = Color(0xffD9D9D9);
   static const fabtap = Color(0xffEB3030);
+
+  static const offertext = Color(0xffFE735C);
+  static const ratingtext = Color(0xffA4A9B3);
+  static const ratingicon = Color(0xffEDB310);
+
+  static const trending = Color(0xffFD6E87);
 }
