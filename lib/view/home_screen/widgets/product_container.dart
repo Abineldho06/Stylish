@@ -89,7 +89,7 @@ class CustomProductContainer extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '$offerper%Off',
+                      '$offerper% Off',
                       style: GoogleFonts.montserrat(
                         fontSize: 12,
                         color: ColorConstants.offertext,
