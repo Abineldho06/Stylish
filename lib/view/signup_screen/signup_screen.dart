@@ -165,7 +165,12 @@ class _SignupScreenState extends State<SignupScreen> {
                   buttononTap: () {
                     if (emailformkey.currentState!.validate() &&
                         passformkey.currentState!.validate() &&
-                        repassformkey.currentState!.validate()) {}
+                        repassformkey.currentState!.validate()) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignInScreen()),
+                      );
+                    }
                   },
                 ),
 

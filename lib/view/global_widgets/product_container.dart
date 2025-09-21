@@ -11,7 +11,7 @@ class CustomProductContainer extends StatelessWidget {
     required this.subtext,
     required this.price,
     required this.oldprice,
-    required this.offerper,
+    required this.offer,
     this.rating = 0,
     this.noofratings = '',
   });
@@ -21,7 +21,7 @@ class CustomProductContainer extends StatelessWidget {
   final String subtext;
   final String price;
   final String oldprice;
-  final String offerper;
+  final String offer;
   final double rating;
   final String noofratings;
 
@@ -35,7 +35,6 @@ class CustomProductContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
       ),
       width: 170,
-      height: 260,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -89,7 +88,7 @@ class CustomProductContainer extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '$offerper% Off',
+                      '$offer% Off',
                       style: GoogleFonts.montserrat(
                         fontSize: 12,
                         color: ColorConstants.offertext,

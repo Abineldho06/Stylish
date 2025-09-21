@@ -7,11 +7,11 @@ import 'package:stylish_ui/core/constants/image_constants.dart';
 import 'package:stylish_ui/view/global_widgets/filter_section.dart';
 import 'package:stylish_ui/view/home_screen/widgets/category_widget.dart';
 import 'package:stylish_ui/view/home_screen/widgets/dealoftheday.dart';
-import 'package:stylish_ui/view/home_screen/widgets/demo_data/banner_demo.dart';
-import 'package:stylish_ui/view/home_screen/widgets/demo_data/category_demo_data.dart';
-import 'package:stylish_ui/view/home_screen/widgets/demo_data/dealofdayproduct_demo_data.dart';
-import 'package:stylish_ui/view/home_screen/widgets/demo_data/trendinding_product_demo_data.dart';
-import 'package:stylish_ui/view/home_screen/widgets/product_container.dart';
+import 'package:stylish_ui/view/home_screen/demo_data/banner_demo.dart';
+import 'package:stylish_ui/view/home_screen/demo_data/category_demo_data.dart';
+import 'package:stylish_ui/view/home_screen/demo_data/dealofdayproduct_demo_data.dart';
+import 'package:stylish_ui/view/home_screen/demo_data/trendinding_product_demo_data.dart';
+import 'package:stylish_ui/view/global_widgets/product_container.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
             spacing: 14,
             children: [
               Image.asset(
-                'assets/images/special_offere.png',
+                'assets/images/homepage_images/special_offere.png',
                 width: 80,
                 height: 70,
               ),
@@ -182,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
               subtext: productslist[index].subtext,
               price: productslist[index].price,
               oldprice: productslist[index].realprice,
-              offerper: productslist[index].offer,
+              offer: productslist[index].offer,
               rating: productslist[index].rating,
               noofratings: productslist[index].noofratings,
             ),
@@ -203,9 +203,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _methodCarouselSlider() {
     List imageUrl = [
-      'assets/images/caraouselimg1.jpg',
-      'assets/images/carouselimg2.jpg',
-      'assets/images/carouselimg3.jpg',
+      'assets/images/homepage_images/caraouselimg1.jpg',
+      'assets/images/homepage_images/carouselimg2.jpg',
+      'assets/images/homepage_images/carouselimg3.jpg',
     ];
     return Column(
       spacing: 12,
@@ -393,7 +393,7 @@ class _HomeScreenState extends State<HomeScreen> {
               subtext: trendingproductlist[index].subtext,
               price: trendingproductlist[index].price,
               oldprice: trendingproductlist[index].realprice,
-              offerper: trendingproductlist[index].offer,
+              offer: trendingproductlist[index].offer,
               rating: trendingproductlist[index].rating,
               noofratings: trendingproductlist[index].noofratings,
             ),
@@ -422,7 +422,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   topRight: Radius.circular(6),
                 ),
                 image: DecorationImage(
-                  image: AssetImage('assets/images/newArivals.png'),
+                  image: AssetImage(
+                    'assets/images/homepage_images/newArivals.png',
+                  ),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -517,7 +519,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 257,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/sponserd.jpg'),
+                    image: AssetImage(
+                      'assets/images/homepage_images/sponserd.jpg',
+                    ),
                     fit: BoxFit.cover,
                   ),
                   borderRadius: BorderRadius.circular(8),

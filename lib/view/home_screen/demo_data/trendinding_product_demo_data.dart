@@ -2,7 +2,7 @@ import 'package:stylish_ui/model/home_screen_model/products_model.dart';
 
 List<ProductsModel> trendingproductlist = [
   ProductsModel(
-    imgUrl: 'assets/images/overear.jpg',
+    imgUrl: 'assets/images/homepage_images/overear.jpg',
     title: 'boAt Rockerz',
     subtext: 'boAt Rockerz 421 (2025 Launch), 40Hrs Battery, Low Latency(40Ms)',
     price: '1,999',
@@ -10,7 +10,7 @@ List<ProductsModel> trendingproductlist = [
     offer: '20',
   ),
   ProductsModel(
-    imgUrl: 'assets/images/hoodie.jpg',
+    imgUrl: 'assets/images/homepage_images/hoodie.jpg',
     title: 'ADRO',
     subtext:
         'ADRO Hoodies for Men | Printed Hoodie for Men | Cotton Hoodie | Mens Hoodies',
@@ -19,7 +19,7 @@ List<ProductsModel> trendingproductlist = [
     offer: '50',
   ),
   ProductsModel(
-    imgUrl: 'assets/images/fastrack.jpg',
+    imgUrl: 'assets/images/homepage_images/fastrack.jpg',
     title: 'Fastrack',
     subtext:
         'Fastrack Trendies Digital Grey Dial Silicone Strap Watch For Men-NS38045PP02',
@@ -28,7 +28,7 @@ List<ProductsModel> trendingproductlist = [
     offer: '30',
   ),
   ProductsModel(
-    imgUrl: 'assets/images/dotkey.jpg',
+    imgUrl: 'assets/images/homepage_images/dotkey.jpg',
     title: 'DOT & KEY',
     subtext:
         'DOT & KEY Vitamin C + E Super Bright Gel Face Wash For Glowing skin',

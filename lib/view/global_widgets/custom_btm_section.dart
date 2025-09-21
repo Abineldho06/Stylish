@@ -34,7 +34,7 @@ class CustomBottomSection extends StatelessWidget {
             spacing: 10,
             children: [
               CustomCircleAvatar(image: ImageConstants.google_svg),
-              CustomCircleAvatar(image: ImageConstants.apple_avg),
+              CustomCircleAvatar(image: ImageConstants.apple_svg),
               CustomCircleAvatar(image: ImageConstants.facebook_svg),
             ],
           ),

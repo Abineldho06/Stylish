@@ -2,7 +2,7 @@ import 'package:stylish_ui/model/home_screen_model/products_model.dart';
 
 List<ProductsModel> productslist = [
   ProductsModel(
-    imgUrl: 'assets/images/bag.jpg',
+    imgUrl: 'assets/images/homepage_images/bag.jpg',
     title: "uppercase Campus Bag ",
     subtext: 'Double Compartment with Top & Side Quick Access Pocket',
     price: '1,277',
@@ -12,7 +12,7 @@ List<ProductsModel> productslist = [
     noofratings: '4010',
   ),
   ProductsModel(
-    imgUrl: 'assets/images/apple_watch.jpg',
+    imgUrl: 'assets/images/homepage_images/apple_watch.jpg',
     title: 'Apple Watch SE 3',
     subtext:
         'Apple Watch SE 3 GPS 40mm Starlight Aluminium Case with Starlight Sport Band - M/L',
@@ -23,7 +23,7 @@ List<ProductsModel> productslist = [
     noofratings: '30000',
   ),
   ProductsModel(
-    imgUrl: 'assets/images/puma_shoes.jpg',
+    imgUrl: 'assets/images/homepage_images/puma_shoes.jpg',
     title: 'Puma',
     subtext: "Puma Unisex-Adult Tifosi Sneaker.Vintage-inspired yet modern.",
     price: '4,949',
@@ -33,7 +33,7 @@ List<ProductsModel> productslist = [
     noofratings: '20678',
   ),
   ProductsModel(
-    imgUrl: 'assets/images/shirt.jpg',
+    imgUrl: 'assets/images/homepage_images/shirt.jpg',
     title: 'Leriya Fashion',
     subtext:
         "Leriya Fashion Men's Casual Rayon Relaxed Fit Shirt Button Down Summer Shirts",
@@ -44,7 +44,7 @@ List<ProductsModel> productslist = [
     noofratings: '28',
   ),
   ProductsModel(
-    imgUrl: 'assets/images/earbuds.jpg',
+    imgUrl: 'assets/images/homepage_images/earbuds.jpg',
     title: 'GOBOULT',
     subtext:
         'GOBOULT Mustang Torq Wireless in Ear Earbuds with 60H Playtime, App Support',
