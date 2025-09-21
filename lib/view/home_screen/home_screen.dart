@@ -22,6 +22,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentpage = 0;
+  TextEditingController searchcontroller = TextEditingController();
+  FocusNode searchfocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -265,6 +267,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: TextField(
+        focusNode: searchfocusNode,
+        controller: searchcontroller,
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
@@ -287,6 +291,9 @@ class _HomeScreenState extends State<HomeScreen> {
             color: ColorConstants.searchbartext,
           ),
         ),
+        onTapOutside: (event) {
+          searchfocusNode.unfocus();
+        },
       ),
     );
   }
@@ -357,14 +364,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _methodBanner() {
     return SizedBox(
-      height: 172,
+      height: 170,
       child: PageView.builder(
         itemCount: bannerimages.length,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Container(
             width: 343,
-            height: 172,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               image: DecorationImage(

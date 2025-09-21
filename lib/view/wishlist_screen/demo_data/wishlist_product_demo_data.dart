@@ -28,8 +28,7 @@ List<WishlistProductModel> wishlistproductlist = [
   WishlistProductModel(
     imgUrl: 'assets/images/wishlist_images/product4.jpg',
     title: 'FEXME',
-    subtext:
-        'FEXME 5-in-1 Mini Makeup Brush Set with Mirror Blush & Powder Brushes',
+    subtext: 'FEXME 5-in-1 Makeup Brush Set with Mirror Blush & Powder',
     price: '2,050',
     rating: 4,
     noofratings: '2,890',
@@ -73,22 +72,6 @@ List<WishlistProductModel> wishlistproductlist = [
     price: "25,999",
     rating: 4.5,
     noofratings: '890',
-  ),
-  WishlistProductModel(
-    imgUrl: 'assets/images/wishlist_images/product9.jpg',
-    title: 'GoPro',
-    subtext: "GoPro HERO12 Black Powerhouse Bundle Waterproof",
-    price: '27,498',
-    rating: 4.5,
-    noofratings: '32,809',
-  ),
-  WishlistProductModel(
-    imgUrl: 'assets/images/wishlist_images/product9.jpg',
-    title: 'GoPro',
-    subtext: "GoPro HERO12 Black Powerhouse Bundle Waterproof",
-    price: '27,498',
-    rating: 4.5,
-    noofratings: '32,809',
   ),
   WishlistProductModel(
     imgUrl: 'assets/images/wishlist_images/product9.jpg',
