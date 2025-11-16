@@ -87,7 +87,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           ),
         ],
       ),
-
+      backgroundColor: ColorConstants.scafoldclr,
       body: Center(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -145,7 +145,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     );
   }
 
-  TextButton _methodPreviewButton() {
+  Widget _methodPreviewButton() {
     return TextButton(
       onPressed: () {
         if (currentindex > 0) {
@@ -160,7 +160,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     );
   }
 
-  TextButton _methodNextButton(BuildContext context) {
+  Widget _methodNextButton(BuildContext context) {
     return TextButton(
       onPressed: () {
         if (currentindex < screendata.length - 1) {
@@ -170,7 +170,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         } else if (currentindex == screendata.length - 1) {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => BottomNavbarScreen()),
+            MaterialPageRoute(
+              builder: (context) => BottomNavbarScreen(index: 0),
+            ),
           );
         }
       },
@@ -181,7 +183,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     );
   }
 
-  AnimatedSmoothIndicator _methodAnimatedSmoothIndicator() {
+  Widget _methodAnimatedSmoothIndicator() {
     return AnimatedSmoothIndicator(
       activeIndex: currentindex,
       count: screendata.length,

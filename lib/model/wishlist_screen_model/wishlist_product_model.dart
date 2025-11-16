@@ -1,5 +1,8 @@
+import 'package:flutter/material.dart';
+
 class WishlistProductModel {
-  final String imgUrl;
+  final String thumbnail;
+  final List images;
   final String title;
   final String subtext;
   final String price;
@@ -7,7 +10,8 @@ class WishlistProductModel {
   final String noofratings;
 
   WishlistProductModel({
-    required this.imgUrl,
+    required this.thumbnail,
+    required this.images,
     required this.title,
     required this.subtext,
     required this.price,

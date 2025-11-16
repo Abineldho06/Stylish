@@ -6,8 +6,9 @@ import 'package:stylish_ui/view/settings_screen/setting_screen.dart';
 import 'package:stylish_ui/view/wishlist_screen/wishlist_screen.dart';
 
 class BottomNavbarScreen extends StatefulWidget {
-  const BottomNavbarScreen({super.key});
+  const BottomNavbarScreen({super.key, required this.index});
 
+  final int index;
   @override
   State<BottomNavbarScreen> createState() => _BottomNavbarScreenState();
 }
@@ -15,10 +16,11 @@ class BottomNavbarScreen extends StatefulWidget {
 class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
   Color fabcolor = ColorConstants.white;
   Color fabiconclr = ColorConstants.black;
-  int selectedindex = 0;
+  late int selectedindex = widget.index;
   List screenlist = [
     HomeScreen(),
     WishlistScreen(),
+    SizedBox(),
     SearchScreen(),
     SettingScreen(),
   ];
@@ -28,15 +30,21 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          fabcolor = ColorConstants.fabtap;
-          fabiconclr = ColorConstants.white;
+          selectedindex = 2;
           setState(() {});
         },
-        backgroundColor: fabcolor,
+        backgroundColor: selectedindex == 2
+            ? ColorConstants.fabtap
+            : ColorConstants.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(50),
         ),
-        child: Icon(Icons.shopping_cart_outlined, color: fabiconclr),
+        child: Icon(
+          Icons.shopping_cart_outlined,
+          color: selectedindex == 2
+              ? ColorConstants.white
+              : ColorConstants.black,
+        ),
       ),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -64,6 +72,7 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
             label: 'Wishlist',
           ),
 
+          BottomNavigationBarItem(icon: SizedBox(), label: ''),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
 
           BottomNavigationBarItem(

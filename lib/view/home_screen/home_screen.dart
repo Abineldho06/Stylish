@@ -22,6 +22,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentpage = 0;
+  int currentbanner = 0;
   TextEditingController searchcontroller = TextEditingController();
   FocusNode searchfocusNode = FocusNode();
 
@@ -205,8 +206,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _methodCarouselSlider() {
     List imageUrl = [
-      'assets/images/homepage_images/caraouselimg1.jpg',
-      'assets/images/homepage_images/carouselimg2.jpg',
+      'assets/images/homepage_images/carouselimg1.jpeg',
+      'assets/images/homepage_images/carouselimg2.jpeg',
       'assets/images/homepage_images/carouselimg3.jpg',
     ];
     return Column(
@@ -363,24 +364,45 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _methodBanner() {
-    return SizedBox(
-      height: 170,
-      child: PageView.builder(
-        itemCount: bannerimages.length,
-        itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Container(
-            width: 343,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              image: DecorationImage(
-                image: AssetImage(bannerimages[index]),
-                fit: BoxFit.fitWidth,
+    return Column(
+      children: [
+        SizedBox(
+          height: 170,
+          child: PageView.builder(
+            itemCount: bannerimages.length,
+            itemBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Container(
+                width: 343,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  image: DecorationImage(
+                    image: AssetImage(bannerimages[index]),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
+            onPageChanged: (index) {
+              setState(() {
+                currentbanner = index;
+              });
+            },
           ),
         ),
-      ),
+        SizedBox(height: 16),
+        AnimatedSmoothIndicator(
+          activeIndex: currentbanner,
+          count: bannerimages.length,
+          effect: JumpingDotEffect(
+            radius: 9,
+            dotWidth: 9,
+            dotHeight: 9,
+            dotColor: ColorConstants.indicator2,
+            activeDotColor: ColorConstants.offertext,
+          ),
+        ),
+      ],
     );
   }
 
@@ -429,9 +451,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 image: DecorationImage(
                   image: AssetImage(
-                    'assets/images/homepage_images/newArivals.png',
+                    'assets/images/homepage_images/newArrivals.jpeg',
                   ),
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -526,7 +548,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
-                      'assets/images/homepage_images/sponserd.jpg',
+                      'assets/images/homepage_images/sponserd.png',
                     ),
                     fit: BoxFit.cover,
                   ),

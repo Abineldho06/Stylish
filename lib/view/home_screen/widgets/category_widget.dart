@@ -16,7 +16,7 @@ class CategoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CircleAvatar(radius: 28, child: Image.asset(catimg)),
+        CircleAvatar(radius: 28, backgroundImage: AssetImage(catimg)),
         SizedBox(height: 4),
         Text(
           category,

@@ -31,6 +31,13 @@ class CustomProductContainer extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: ColorConstants.black.withValues(alpha: .2),
+            offset: Offset(0, 2),
+            blurRadius: 4,
+          ),
+        ],
         color: ColorConstants.white,
         borderRadius: BorderRadius.circular(6),
       ),

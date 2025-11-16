@@ -74,7 +74,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => BottomNavbarScreen(),
+                          builder: (context) => BottomNavbarScreen(index: 0),
                         ),
                       );
                     },

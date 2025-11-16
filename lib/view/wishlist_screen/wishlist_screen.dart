@@ -4,8 +4,11 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stylish_ui/core/constants/color_constants.dart';
 import 'package:stylish_ui/core/constants/image_constants.dart';
+import 'package:stylish_ui/view/bottom_navbar_screen/bottom_navbar_screen.dart';
 import 'package:stylish_ui/view/global_widgets/filter_section.dart';
+import 'package:stylish_ui/view/home_screen/home_screen.dart';
 import 'package:stylish_ui/view/wishlist_screen/demo_data/wishlist_product_demo_data.dart';
+import 'package:stylish_ui/view/wishlist_screen/second_Screen.dart';
 
 class WishlistScreen extends StatefulWidget {
   const WishlistScreen({super.key});
@@ -70,19 +73,14 @@ class _WishlistScreenState extends State<WishlistScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
       child: MasonryGridView.builder(
-        mainAxisSpacing: 8,
+        mainAxisSpacing: 12,
         crossAxisSpacing: 16,
         gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
         itemCount: wishlistproductlist.length,
-        itemBuilder: (context, index) {
-          int column = index % 2;
-          double imgheight = (column == 0)
-              ? (index.isOdd ? 136 : 196)
-              : (index.isEven ? 196 : 136);
-
-          return Container(
+        itemBuilder: (context, index) => InkWell(
+          child: Container(
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -98,15 +96,23 @@ class _WishlistScreenState extends State<WishlistScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: imgheight,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                    image: DecorationImage(
-                      image: AssetImage(wishlistproductlist[index].imgUrl),
-                      fit: BoxFit.contain,
+                Stack(
+                  children: [
+                    Image.asset(wishlistproductlist[index].thumbnail),
+                    Positioned(
+                      top: 10,
+                      right: 10,
+                      child: CircleAvatar(
+                        radius: 15,
+                        backgroundColor: ColorConstants.white2,
+                        child: Icon(
+                          Icons.favorite,
+                          size: 15,
+                          color: Colors.red,
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.all(4),
@@ -163,8 +169,14 @@ class _WishlistScreenState extends State<WishlistScreen> {
                 ),
               ],
             ),
-          );
-        },
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProductScreen()),
+            );
+          },
+        ),
       ),
     );
   }
